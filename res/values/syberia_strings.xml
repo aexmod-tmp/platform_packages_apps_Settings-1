@@ -176,4 +176,5 @@
     <string name="min_refresh_rate_title">Minimum refresh rate</string>
     <string name="low_power_refresh_rate_title_custom">Low power refresh rate</string>
 
+    <string name="app_play_store">Google Play</string>
 </resources>
