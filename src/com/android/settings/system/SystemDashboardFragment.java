@@ -27,10 +27,15 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.syberia.settings.Utils;
+
 @SearchIndexable
 public class SystemDashboardFragment extends DashboardFragment {
 
     private static final String TAG = "SystemDashboardFrag";
+
+    final String KEY_DEVICE_PART = "device_part";
+    final String KEY_DEVICE_PART_PACKAGE_NAME = "org.omnirom.device";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -41,6 +46,11 @@ public class SystemDashboardFragment extends DashboardFragment {
         if (getVisiblePreferenceCount(screen) == screen.getInitialExpandedChildrenCount() + 1) {
             screen.setInitialExpandedChildrenCount(Integer.MAX_VALUE);
         }
+
+        if (!Utils.isPackageInstalled(getActivity(), KEY_DEVICE_PART_PACKAGE_NAME)) {
+            screen.removePreference(findPreference(KEY_DEVICE_PART));
+        }
+
     }
 
     @Override
