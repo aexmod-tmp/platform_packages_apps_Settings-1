@@ -341,6 +341,10 @@ public class BatteryInfo {
         final int status =
                 batteryBroadcast.getIntExtra(
                         BatteryManager.EXTRA_STATUS, BatteryManager.BATTERY_STATUS_UNKNOWN);
+
+        final boolean dashChargeStatus = batteryBroadcast.getBooleanExtra(
+                BatteryManager.EXTRA_DASH_CHARGER, false);
+
         info.discharging = false;
         info.suggestionLabel = null;
         int dockDefenderMode = BatteryUtils.getCurrentDockDefenderMode(context, info);
@@ -365,13 +369,14 @@ public class BatteryInfo {
                             false /* withSeconds */,
                             true /* collapseTimeUnit */);
             int resId = com.android.settingslib.R.string.power_charging_duration;
-            info.remainingLabel =
-                    chargeTimeMs <= 0
-                            ? null
-                            : context.getString(
-                                    com.android.settingslib.R.string
-                                            .power_remaining_charging_duration_only,
-                                    timeString);
+
+            if (dashChargeStatus)
+                info.remainingLabel = chargeTimeMs <= 0 ? null : context.getString(
+                        R.string.power_remaining_dash_charging_duration_only, timeString);
+            else
+                info.remainingLabel = chargeTimeMs <= 0 ? null : context.getString(
+                        R.string.power_remaining_charging_duration_only, timeString);
+
             info.chargeLabel =
                     chargeTimeMs <= 0
                             ? info.batteryPercentString
