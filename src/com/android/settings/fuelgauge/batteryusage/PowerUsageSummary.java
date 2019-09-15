@@ -73,6 +73,10 @@ public class PowerUsageSummary extends PowerUsageBase
     @VisibleForTesting Preference mHelpPreference;
     @VisibleForTesting Preference mBatteryUsagePreference;
 
+    private static final String KEY_BATTERY_TEMP = "battery_temperature";
+
+    @VisibleForTesting
+    PowerGaugePreference mBatteryTempPref;
     @VisibleForTesting
     final ContentObserver mSettingsObserver =
             new ContentObserver(new Handler()) {
@@ -145,6 +149,7 @@ public class PowerUsageSummary extends PowerUsageBase
         initFeatureProvider();
         initPreference();
 
+        mBatteryTempPref = (PowerGaugePreference) findPreference(KEY_BATTERY_TEMP);
         mBatteryUtils = BatteryUtils.getInstance(getContext());
 
         if (Utils.isBatteryPresent(getContext())) {
@@ -224,6 +229,8 @@ public class PowerUsageSummary extends PowerUsageBase
         }
         // reload BatteryInfo and updateUI
         restartBatteryInfoLoader();
+
+        mBatteryTempPref.setSummary(BatteryInfo.batteryTemp / 10 + " °C");
     }
 
     @VisibleForTesting
