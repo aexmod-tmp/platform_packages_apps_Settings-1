@@ -344,6 +344,8 @@ public class BatteryInfo {
 
         final boolean dashChargeStatus = batteryBroadcast.getBooleanExtra(
                 BatteryManager.EXTRA_DASH_CHARGER, false);
+        final boolean warpChargeStatus = batteryBroadcast.getBooleanExtra(
+                BatteryManager.EXTRA_WARP_CHARGER, false);
 
         info.discharging = false;
         info.suggestionLabel = null;
@@ -374,6 +376,11 @@ public class BatteryInfo {
                 info.remainingLabel = chargeTimeMs <= 0
                         ? null : context.getString(
                         com.android.settingslib.R.string.power_remaining_dash_charging_duration_only,
+                        timeString);
+            else if (warpChargeStatus)
+                info.remainingLabel = chargeTimeMs <= 0
+                        ? null : context.getString(
+                        com.android.settingslib.R.string.power_remaining_warp_charging_duration_only,
                         timeString);
             else
                 info.remainingLabel = chargeTimeMs <= 0
