@@ -51,7 +51,7 @@ android_library {
         "SpaPrivilegedLib-defaults",
     ],
 
-    srcs: ["src/**/*.java", "src/**/*.kt", "../SyberiaSettings/src/**/*.java"],
+    srcs: ["src/**/*.java", "src/**/*.kt", "SyberiaSettings/src/**/*.java"],
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/shared/**/*.kt",
     ],
@@ -62,7 +62,7 @@ android_library {
         "res",
         "res-export", // for external usage
         "res-product",
-        "packages/apps/SyberiaSettings/res"
+        "SyberiaSettings/res"
     ],
 
     static_libs: [
@@ -81,6 +81,8 @@ android_library {
         "android.hardware.dumpstate-V1.1-java",
         "android.view.accessibility.flags-aconfig-java",
         "com_android_server_accessibility_flags_lib",
+        "glide",
+        "jsr305",
         "net-utils-framework-common",
         "notification_flags_lib",
         "securebox",
@@ -107,7 +109,6 @@ android_library {
         "settings-logtags",
         "settings-telephony-protos-lite",
         "statslog-settings",
-        "glide",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
