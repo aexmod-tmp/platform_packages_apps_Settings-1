@@ -97,4 +97,11 @@
     <string name="back_swipe_extended_title">Действие при очень длинном свайпе</string>
     <string name="back_swipe_extended_summary">Действие будет выполнено при горизонтальном свайпе не менее чем в 1\/2 размера экрана, либо L-образном свайпе</string>
 
+    <!-- About -->
+    <string name="about_device_name">Устройство</string>
+
+    <!-- Hardware info -->
+    <string name="platform_revision">Платформа</string>
+    <string name="total_ram">Всего оперативной памяти</string>
+
 </resources>
