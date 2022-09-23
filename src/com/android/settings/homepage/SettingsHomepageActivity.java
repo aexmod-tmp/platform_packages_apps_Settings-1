@@ -285,8 +285,6 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
     }
 
-    }
-
     private void updateHomepageBackground() {
         if (!mIsEmbeddingActivityEnabled) {
             return;
@@ -434,15 +432,15 @@ public class SettingsHomepageActivity extends FragmentActivity implements
             return;
         }
         updateAppBarMinHeight();
-        if (mIsTwoPane) {
-            findViewById(R.id.homepage_app_bar_regular_phone_view).setVisibility(View.GONE);
-            findViewById(R.id.homepage_app_bar_two_pane_view).setVisibility(View.VISIBLE);
-            findViewById(R.id.suggestion_container_two_pane).setVisibility(View.VISIBLE);
-        } else {
-            findViewById(R.id.homepage_app_bar_regular_phone_view).setVisibility(View.VISIBLE);
-            findViewById(R.id.homepage_app_bar_two_pane_view).setVisibility(View.GONE);
-            findViewById(R.id.suggestion_container_two_pane).setVisibility(View.GONE);
-        }
+//        if (mIsTwoPane) {
+//            findViewById(R.id.homepage_app_bar_regular_phone_view).setVisibility(View.GONE);
+//            findViewById(R.id.homepage_app_bar_two_pane_view).setVisibility(View.VISIBLE);
+//            findViewById(R.id.suggestion_container_two_pane).setVisibility(View.VISIBLE);
+//        } else {
+//            findViewById(R.id.homepage_app_bar_regular_phone_view).setVisibility(View.VISIBLE);
+//            findViewById(R.id.homepage_app_bar_two_pane_view).setVisibility(View.GONE);
+//            findViewById(R.id.suggestion_container_two_pane).setVisibility(View.GONE);
+//        }
     }
 
     private void updateHomepagePaddings() {
@@ -465,7 +463,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
                 mIsEmbeddingActivityEnabled && mIsTwoPane
                         ? R.dimen.homepage_app_bar_padding_two_pane
                         : R.dimen.search_bar_margin);
-        findViewById(R.id.app_bar_container).setMinimumHeight(searchBarHeight + margin * 2);
+//        findViewById(R.id.app_bar_container).setMinimumHeight(searchBarHeight + margin * 2);
     }
 
     private static class SuggestionFragCreator implements FragmentCreator {
