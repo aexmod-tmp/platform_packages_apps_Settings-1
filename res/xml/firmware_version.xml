@@ -21,9 +21,11 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
-<PreferenceScreen
-    android:layout="@layout/syberia_logo_layout"
-    android:key="syberia_logo" />
+    <com.android.settingslib.widget.LayoutPreference
+        android:order="-280"
+        android:key="syberia_logo"
+        android:layout="@layout/syberia_logo_layout"
+        android:selectable="false" />
 
     <!-- Android version -->
     <Preference
