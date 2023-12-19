@@ -175,4 +175,10 @@
     <!-- IME button space -->
     <string name="navigation_bar_ime_space_title">Пространство под клавиатурой</string>
     <string name="navigation_bar_ime_space_summary">Убрать дополнительное пространство под клавиатурой</string>
+
+    <!-- Refresh rate -->
+    <string name="min_refresh_rate_title">Минимальная частота обновления</string>
+    <string name="max_refresh_rate_title">Масимальная частота обновления</string>
+    <string name="low_power_refresh_rate_title_custom">Частота обновления в энергосберегающем режиме</string>
+
 </resources>
