@@ -26,11 +26,8 @@ import android.provider.Settings;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
-<<<<<<< HEAD
-=======
 import androidx.preference.SwitchPreferenceCompat;
 import androidx.preference.TwoStatePreference;
->>>>>>> 3f8ad239744 (Settings: Migrate to SwitchPreferenceCompat)
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.settings.R;
@@ -58,17 +55,8 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
 
     @VisibleForTesting
     PreferenceCategory mPreferenceCategory;
-<<<<<<< HEAD
     @VisibleForTesting
-    SelectorWithWidgetPreference mVibratePref;
-    @VisibleForTesting
-    SelectorWithWidgetPreference mMutePref;
-=======
-    MainSwitchPreference mMasterSwitch;
-    TwoStatePreference mNormalPref;
     TwoStatePreference mVibratePref;
-    TwoStatePreference mMutePref;
->>>>>>> 3f8ad239744 (Settings: Migrate to SwitchPreferenceCompat)
 
     private SettingObserver mSettingObserver;
 
@@ -169,14 +157,8 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         }
     }
 
-<<<<<<< HEAD
-    private SelectorWithWidgetPreference makeRadioPreference(String key, int titleId) {
-        SelectorWithWidgetPreference pref = new SelectorWithWidgetPreference(
-                mPreferenceCategory.getContext());
-=======
     private TwoStatePreference makeSwitchPreference(String key, int titleId) {
         TwoStatePreference pref = new SwitchPreferenceCompat(mPreferenceCategory.getContext());
->>>>>>> 3f8ad239744 (Settings: Migrate to SwitchPreferenceCompat)
         pref.setKey(key);
         pref.setTitle(titleId);
         pref.setOnClickListener(this);
